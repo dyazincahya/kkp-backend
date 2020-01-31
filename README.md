@@ -1,2 +1,2 @@
 # kkp-backend
-Aplikasi KKP Backend | S7H UNINDRA 2019
+Service aplikasi [dyazincahya/kkp-mobile](https://github.com/dyazincahya/kkp-mobile) | S7H UNINDRA 2019
