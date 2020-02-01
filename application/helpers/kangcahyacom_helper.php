@@ -25,22 +25,12 @@
         } else { return $decodeBody; }
     }
 
-    function default_respose($message=""){
+    function default_response($message=""){
     	return [
             "success" => false,
             "message" => (empty($message) ? "Data not found!" : "User access not found!"),
             "data" => [],
             "count" => 0
         ];
-    }
-
-    function val_checker($param){
-    	if(isset($param)){
-    		if(empty($param)){
-    			return null;
-    		}
-    	} else {
-    		return null;
-    	}
     }
 

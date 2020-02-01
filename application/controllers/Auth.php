@@ -9,11 +9,11 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
-        $resp = default_respose("User access not found!");
+        $resp = default_response("User access not found!");
 
         $rb = raw_body();
-        $email = val_checker($rb['email']);
-        $password = val_checker(md5($rb['password']));
+        $email = isset($rb['email']) ? $rb['email'] : null;
+        $password = isset($rb['password']) ? md5($rb['password']) : null;
 
         $admin_where = "admin_email='" . $email . "' AND admin_password='" . $password . "'";
         $admin = $this->db->get_where("admin", $admin_where);
