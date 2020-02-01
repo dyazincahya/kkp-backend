@@ -1,5 +1,5 @@
 # kkp-backend
-Service API [dyazincahya/kkp-mobile](https://github.com/dyazincahya/kkp-mobile) | S7H UNINDRA 2019
+Service API [kkp-mobile](https://github.com/dyazincahya/kkp-mobile) | S7H UNINDRA 2019
 
 ### Instalasi
 
