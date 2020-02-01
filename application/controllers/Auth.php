@@ -9,14 +9,15 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
+        $resp = default_respose("User access not found!");
+
         $rb = raw_body();
-        $email = $rb['email'];
-        $password = md5($rb['password']);
+        $email = val_checker($rb['email']);
+        $password = val_checker(md5($rb['password']));
 
         $admin_where = "admin_email='" . $email . "' AND admin_password='" . $password . "'";
         $admin = $this->db->get_where("admin", $admin_where);
 
-        $resp = default_respose("User access not found!");
 
         if($admin->num_rows() < 1){
             $customer_where = "customer_email='" . $email . "' AND customer_password='" . $password . "'";

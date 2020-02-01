@@ -34,3 +34,13 @@
         ];
     }
 
+    function val_checker($param){
+    	if(isset($param)){
+    		if(empty($param)){
+    			return null;
+    		}
+    	} else {
+    		return null;
+    	}
+    }
+
