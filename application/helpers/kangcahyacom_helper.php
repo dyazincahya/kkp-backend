@@ -25,3 +25,12 @@
         } else { return $decodeBody; }
     }
 
+    function default_respose($message=""){
+    	return [
+            "success" => false,
+            "message" => (empty($message) ? "Data not found!" : "User access not found!"),
+            "data" => [],
+            "count" => 0
+        ];
+    }
+
