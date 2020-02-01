@@ -40,3 +40,7 @@ $db['default'] = array(
 );
 ```
 Pada konfigurasi di atas kamu cukup atur bagian ```username, password dan database```
+
+### API yang sudah tersedia
+- http://localhost/kkp-backend/auth
+- http://localhost/kkp-backend/signup
