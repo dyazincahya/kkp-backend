@@ -44,3 +44,4 @@ Pada konfigurasi di atas kamu cukup atur bagian ```username, password dan databa
 ### API yang sudah tersedia
 - API untuk melakukan login ke aplikasi [http://localhost/kkp-backend/auth](https://github.com/dyazincahya/kkp-backend/blob/master/application/controllers/Auth.php)
 - API untuk melakukan registrasi customer baru [http://localhost/kkp-backend/signup](https://github.com/dyazincahya/kkp-backend/blob/master/application/controllers/Signup.php)
+- API untuk menghitung data board [http://localhost/kkp-backend/board](https://github.com/dyazincahya/kkp-backend/blob/master/application/controllers/Board.php)
