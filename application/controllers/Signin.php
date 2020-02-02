@@ -39,7 +39,7 @@ class Signin extends CI_Controller {
                         "user_kota_tinggal" => $dataset['customer_kota_tinggal'],
                         "user_alamat" => $dataset['customer_alamat']
                     ],
-                    "count" => $customer->num_rows()
+                    "total" => $customer->num_rows()
                 ];
             } else {
                 $kurir_where = "kurir_email='" . $email . "' AND kurir_password='" . $password . "'";
@@ -62,7 +62,7 @@ class Signin extends CI_Controller {
                             "user_kota_tinggal" => null,
                             "user_alamat" => null
                         ],
-                        "count" => $kurir->num_rows()
+                        "total" => $kurir->num_rows()
                     ];
                 }
             }
@@ -83,7 +83,7 @@ class Signin extends CI_Controller {
                     "user_kota_tinggal" => null,
                     "user_alamat" => null
                 ],
-                "count" => $admin->num_rows()
+                "total" => $admin->num_rows()
             ];
         }
 

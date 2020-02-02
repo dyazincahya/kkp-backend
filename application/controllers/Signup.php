@@ -56,7 +56,7 @@ class Signup extends CI_Controller {
                     "success" => true,
                     "message" => "Registrasi Berhasil",
                     "data" => $arr_data,
-                    "count" => 1
+                    "total" => 1
                 ];
             }
         }

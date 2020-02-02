@@ -36,7 +36,7 @@ class Board extends CI_Controller {
                     "selesai" => $package_selesai
                 ]
             ],
-            "count" => 1
+            "total" => 1
         ];
 
         j_encode($resp, "raw");

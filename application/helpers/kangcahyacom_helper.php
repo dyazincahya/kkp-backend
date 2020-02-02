@@ -7,7 +7,7 @@
 	        	"success" => true,
 	        	"message" => "Request Successfully",
 	        	"data" => ($counter != 0) ? $arr : [],
-	        	"count" => $counter
+	        	"total" => $counter
 	        ];
         	echo json_encode($resp, JSON_UNESCAPED_UNICODE);
 	    } else {
@@ -50,7 +50,7 @@
             "success" => false,
             "message" => (empty($message) ? "Data not found!" : "User access not found!"),
             "data" => [],
-            "count" => 0
+            "total" => 0
         ];
     }
 
