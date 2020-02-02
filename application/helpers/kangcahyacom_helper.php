@@ -32,7 +32,8 @@
         if($key == null){
         	return $key; 
         } else { 
-        	$a = (array)$decodeBody[$key];
+        	$z = (array)$decodeBody;
+        	$a = $z[$key];
         	if(isset($a)){
         		if(empty($a)){
         			return null;
