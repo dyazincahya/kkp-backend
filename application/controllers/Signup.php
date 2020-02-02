@@ -11,15 +11,14 @@ class Signup extends CI_Controller {
 	{
         $resp = default_response();
 
-        $rb = raw_body();
-        $customer_no_ktp = isset($rb['no_ktp']) ? $rb['no_ktp'] : null;
-        $customer_nama = isset($rb['nama']) ? $rb['nama'] : null;
-        $customer_email = isset($rb['email']) ? $rb['email'] : null;
-        $customer_password = isset($rb['password']) ? $rb['password'] : null;
-        $customer_no_telp = isset($rb['no_telp']) ? $rb['no_telp'] : null;
-        $customer_tgl_lahir = isset($rb['tgl_lahir']) ? $rb['tgl_lahir'] : null;
-        $customer_kota_tinggal = isset($rb['kota_tinggal']) ? $rb['kota_tinggal'] : null;
-        $customer_alamat = isset($rb['alamat']) ? $rb['alamat'] : null;
+        $customer_no_ktp = get_raw_body($rb['no_ktp']);
+        $customer_nama = get_raw_body($rb['nama']);
+        $customer_email = get_raw_body($rb['email']);
+        $customer_password = get_raw_body($rb['password']);
+        $customer_no_telp = get_raw_body($rb['no_telp']);
+        $customer_tgl_lahir = get_raw_body($rb['tgl_lahir']);
+        $customer_kota_tinggal = get_raw_body($rb['kota_tinggal']);
+        $customer_alamat = get_raw_body($rb['alamat']);
 
         $check_admin = $this->db->get_where("admin", "admin_email='" . $customer_email . "'")->num_rows();
         $check_kurir = $this->db->get_where("kurir", "kurir_email='" . $customer_email . "'")->num_rows();

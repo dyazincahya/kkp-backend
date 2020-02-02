@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Signin extends CI_Controller {
 
 	function __construct() {
         parent::__construct();
@@ -11,16 +11,15 @@ class Auth extends CI_Controller {
 	{
         $resp = default_response("User access not found!");
 
-        $rb = raw_body();
-        $email = isset($rb['email']) ? $rb['email'] : null;
-        $password = isset($rb['password']) ? md5($rb['password']) : null;
+        $email = get_raw_body("email");
+        $password = get_raw_body("password");
 
         $admin_where = "admin_email='" . $email . "' AND admin_password='" . $password . "'";
         $admin = $this->db->get_where("admin", $admin_where);
 
 
         if($admin->num_rows() < 1){
-            $customer_where = "customer_email='" . $email . "' AND customer_password='" . $password . "'";
+            $customer_where = "customer_email='" . $email . "' AND customer_password='" . $password . "' AND customer_status='1'";
             $customer = $this->db->get_where("customer", $customer_where);
 
             if($customer->num_rows() > 0){

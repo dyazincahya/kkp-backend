@@ -25,6 +25,26 @@
         } else { return $decodeBody; }
     }
 
+    function get_raw_body($key=null){
+    	$rawBody = file_get_contents('php://input');
+        $decodeBody = json_decode($rawBody);
+
+        if($key == null){
+        	return $key; 
+        } else { 
+        	$a = (array)$decodeBody[$key];
+        	if(isset($a)){
+        		if(empty($a)){
+        			return null;
+        		} else {
+        			return $a;
+        		}
+        	} else {
+        		return null;
+        	}
+        }
+    }
+
     function default_response($message=""){
     	return [
             "success" => false,
