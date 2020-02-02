@@ -44,4 +44,4 @@ Pada konfigurasi di atas kamu cukup atur bagian ```username, password dan databa
 ### API yang sudah tersedia
 - API untuk melakukan login ke aplikasi [http://localhost/kkp-backend/signin](https://github.com/dyazincahya/kkp-backend/blob/master/application/controllers/Signin.php)
 - API untuk melakukan registrasi customer baru [http://localhost/kkp-backend/signup](https://github.com/dyazincahya/kkp-backend/blob/master/application/controllers/Signup.php)
-- API untuk menghitung data board sperti (customer aktif, tidak aktif dan pending, juga data paket) [http://localhost/kkp-backend/board](https://github.com/dyazincahya/kkp-backend/blob/master/application/controllers/Board.php)
+- API untuk menghitung data board seperti (customer aktif, tidak aktif dan pending, juga data paket) [http://localhost/kkp-backend/board](https://github.com/dyazincahya/kkp-backend/blob/master/application/controllers/Board.php)
