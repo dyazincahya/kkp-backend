@@ -12,17 +12,16 @@ class Signin extends CI_Controller {
         $resp = default_response("User access not found!");
 
         $email = get_raw_body("email");
-        $password = get_raw_body("password");
+        $password = md5(get_raw_body("password"));
 
         $admin_where = "admin_email='" . $email . "' AND admin_password='" . $password . "'";
         $admin = $this->db->get_where("admin", $admin_where);
 
-
-        if($admin->num_rows() < 1){
+        if($admin->num_rows() == 0){
             $customer_where = "customer_email='" . $email . "' AND customer_password='" . $password . "' AND customer_status='1'";
             $customer = $this->db->get_where("customer", $customer_where);
-
-            if($customer->num_rows() > 0){
+            
+            if($customer->num_rows() != 0){
                 $dataset = $customer->row_array();
                 $resp = [
                     "success" => true,
@@ -70,7 +69,7 @@ class Signin extends CI_Controller {
             $dataset = $admin->row_array();
             $resp = [
                 "success" => true,
-                "message" => "Request Successfully 1",
+                "message" => "Request Successfully",
                 "data" => [
                     "user_id" => $dataset['admin_id'],
                     "user_role" => "admin",
