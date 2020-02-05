@@ -32,17 +32,21 @@
         if($key == null){
         	return $key; 
         } else { 
-        	$z = (array)$decodeBody;
-        	$a = $z[$key];
-        	if(isset($a)){
-        		if(empty($a)){
-        			return null;
-        		} else {
-        			return $a;
-        		}
-        	} else {
-        		return null;
-        	}
+        	if(count((array)$decodeBody) > 0){
+                $z = (array)$decodeBody;
+                if(isset($z[$key])){
+                    if(empty($z[$key])){
+                        return null;
+                    } else {
+                        return $z[$key];
+                    }
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        	
         }
     }
 
@@ -53,5 +57,44 @@
             "data" => [],
             "total" => 0
         ];
+    }
+
+    function zmailer($m=[]) {
+        require_once(APPPATH.'libraries/PHPMailerAutoload.php');
+
+        $mail = new PHPMailer;
+
+        $mail->isSMTP();
+        $mail->Host = 'lumineon.sg.rapidplex.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'kkp@vuspicture.com';
+        $mail->Password = '5rkbi5shs3';
+        $mail->Port = 587; // 465 | 587
+
+        $mail->setFrom('noreply@vuspicture.com', 'noreply');
+        $mail->addAddress($m["to"]);
+
+        if(isset($m['attachments'])){
+            $att = $m['attachments'];
+            if(count($att) > 0){
+                for ($i=0; $i < count($att); $i++) { 
+                    $mail->addAttachment($att[$i]);
+                }
+            }
+        }
+
+        $mail->isHTML(true);
+
+        $mail->Subject = $m["subject"];
+        $mail->Body    = $m["message"];
+
+        if(!$mail->send()) {
+            /*echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;*/
+            return false;
+        } else {
+            // echo 'Message has been sent';
+            return true;
+        }
     }
 
