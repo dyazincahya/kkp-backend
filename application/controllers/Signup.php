@@ -9,16 +9,16 @@ class Signup extends CI_Controller {
 
 	public function index()
 	{
-        $resp = default_response();
+        $resp = default_response("Customer sudah terdaftar!");
 
-        $customer_no_ktp = get_raw_body($rb['no_ktp']);
-        $customer_nama = get_raw_body($rb['nama']);
-        $customer_email = get_raw_body($rb['email']);
-        $customer_password = get_raw_body($rb['password']);
-        $customer_no_telp = get_raw_body($rb['no_telp']);
-        $customer_tgl_lahir = get_raw_body($rb['tgl_lahir']);
-        $customer_kota_tinggal = get_raw_body($rb['kota_tinggal']);
-        $customer_alamat = get_raw_body($rb['alamat']);
+        $customer_no_ktp = get_raw_body("no_ktp");
+        $customer_nama = get_raw_body("nama");
+        $customer_email = get_raw_body("email");
+        $customer_password = md5(get_raw_body("password"));
+        $customer_no_telp = get_raw_body("no_telp");
+        $customer_tgl_lahir = get_raw_body("tgl_lahir");
+        $customer_kota_tinggal = get_raw_body("kota_tinggal");
+        $customer_alamat = get_raw_body("alamat");
 
         $check_admin = $this->db->get_where("admin", "admin_email='" . $customer_email . "'")->num_rows();
         $check_kurir = $this->db->get_where("kurir", "kurir_email='" . $customer_email . "'")->num_rows();
