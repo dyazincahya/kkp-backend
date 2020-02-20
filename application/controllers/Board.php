@@ -15,7 +15,8 @@ class Board extends CI_Controller {
         $customer_active = $this->db->get_where("customer", "customer_status='1'")->num_rows();
         $customer_pending = $this->db->get_where("customer", "customer_status='2'")->num_rows();
 
-        $package_request_pickup = $this->db->get_where("package", "package_status='REQUEST PICKUP'")->num_rows();
+        $package_request = $this->db->get_where("package", "package_status='REQUEST'")->num_rows();
+        $package_pickup = $this->db->get_where("package", "package_status='PICKUP'")->num_rows();
         $package_karantina = $this->db->get_where("package", "package_status='KARANTINA'")->num_rows();
         $package_pengiriman = $this->db->get_where("package", "package_status='PENGIRIMAN'")->num_rows();
         $package_selesai = $this->db->get_where("package", "package_status='SELESAI'")->num_rows();
@@ -30,7 +31,8 @@ class Board extends CI_Controller {
                     "pending" => $customer_pending
                 ],
                 "package" => [
-                    "request_pickup" => $package_request_pickup,
+                    "request" => $package_request,
+                    "pickup" => $package_pickup,
                     "karantina" => $package_karantina,
                     "pengiriman" => $package_pengiriman,
                     "selesai" => $package_selesai

@@ -72,7 +72,43 @@
         $mail->Port = 587; // 465 | 587
 
         $mail->setFrom('noreply@vuspicture.com', 'noreply');
-        $mail->addAddress($m["to"]);
+
+        $to = $m['to'];
+        if(is_array($to)){
+            if(count($to) > 0){
+                for ($i=0; $i < count($to); $i++) { 
+                    $mail->addAddress($to[$i]);
+                }
+            }
+        } else {
+            $mail->addAddress($m["to"]);
+        }
+
+        if(isset($m['cc'])){
+            $cc = $m['cc'];
+            if(is_array($cc)){
+                if(count($cc) > 0){
+                    for ($i=0; $i < count($cc); $i++) { 
+                        $mail->addCC($cc[$i]);
+                    }
+                }
+            } else {
+                $mail->addCC($m["cc"]);
+            }
+        }
+
+        if(isset($m['bcc'])){
+            $bcc = $m['bcc'];
+            if(is_array($bcc)){
+                if(count($bcc) > 0){
+                    for ($i=0; $i < count($bcc); $i++) { 
+                        $mail->addBCC($bcc[$i]);
+                    }
+                }
+            } else {
+                $mail->addBCC($m["bcc"]);
+            }
+        }
 
         if(isset($m['attachments'])){
             $att = $m['attachments'];
@@ -97,4 +133,50 @@
             return true;
         }
     }
+
+    function rfdate($vdate, $format="d/m/Y H:i:s"){
+        return date($format, strtotime($vdate));
+    }
+
+    function zempty($string, $message="Kosong"){
+        if(isset($string)){
+            if(!empty($string)){
+                return $string;
+            } else {
+                return $message;
+            }
+        } else {
+            return $message;
+        }
+    }
+
+    function str_to_arr($string="", $delimiter = ";"){
+        if(!empty($string)){
+            return explode($delimiter, $string);
+        } else {
+            return [];
+        }
+    }
+
+    function zstatus($numb){
+        if($numb == 1){
+            return "ACTIVE";
+        } else if($numb == 2){
+            return "PENDING";
+        } else {
+            return "NON ACTIVE";
+        }
+    }
+
+    function zrandstr($n=5) { 
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+        $randomString = ''; 
+      
+        for ($i = 0; $i < $n; $i++) { 
+            $index = rand(0, strlen($characters) - 1); 
+            $randomString .= $characters[$index]; 
+        } 
+      
+        return $randomString; 
+    } 
 
