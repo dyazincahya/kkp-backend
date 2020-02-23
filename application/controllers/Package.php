@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Jakarta');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Package extends CI_Controller {
@@ -25,18 +26,22 @@ class Package extends CI_Controller {
                 } else if($keyword == null && $status == null) {
                     $where = null;
                 } else if($keyword != null && $status != null) {
-                    $where = "p.package_customer_id='". $sess_id ."' AND UPPER(p.package_keterangan) LIKE '%" . $keyword . "%' AND p.package_status='" . $status . "'";
+                    $where = "p.package_customer_id='". $sess_id ."' AND (UPPER(p.package_keterangan) LIKE '%" . $keyword . "%' AND p.package_status='" . $status . "')";
                 }
                 break;
             case 'KURIR':
                 if($keyword == null && $status != null){
-                    $where = "p.package_kurir_id='". $sess_id ."' AND p.package_status='" . $status . "'";
+                    if($status == "REQUEST"){
+                        $where = "p.package_status='" . $status . "'";
+                    } else {
+                        $where = "p.package_kurir_id='". $sess_id ."' AND p.package_status='" . $status . "'";                        
+                    }
                 } else if($status == null && $keyword != null) {
                     $where = "p.package_kurir_id='". $sess_id ."' AND UPPER(p.package_keterangan) LIKE '%" . $keyword . "%'";
                 } else if($keyword == null && $status == null) {
                     $where = null;
                 } else if($keyword != null && $status != null) {
-                    $where = "p.package_kurir_id='". $sess_id ."' AND UPPER(p.package_keterangan) LIKE '%" . $keyword . "%' AND p.package_status='" . $status . "'";
+                    $where = "p.package_kurir_id='". $sess_id ."' AND (UPPER(p.package_keterangan) LIKE '%" . $keyword . "%' AND p.package_status='" . $status . "')";
                 }
                 break;
             default:
@@ -92,6 +97,10 @@ class Package extends CI_Controller {
                 $package_data[$key]['package_resi'] = $val['package_resi'];
                 $package_data[$key]['package_tagihan_karantina'] = "Rp ".number_format((int)$val['package_tagihan_karantina'],0,',','.');
                 $package_data[$key]['package_tagihan_pengiriman'] = "Rp ".number_format((int)$val['package_tagihan_pengiriman'],0,',','.');
+                if(!empty($val['package_tagihan_karantina']) && !empty($val['package_tagihan_pengiriman'])){
+                    $total_x = $val['package_tagihan_karantina']+$val['package_tagihan_pengiriman'];
+                    $package_data[$key]['package_tagihan_total'] = "Rp ".number_format((int)$total_x,0,',','.');
+                }
                 $package_data[$key]['package_status'] = $val['package_status'];
                 $package_data[$key]['package_last_update'] = rfdate($val['package_last_update']);
                 $package_data[$key]['package_created'] = rfdate($val['package_created']);
