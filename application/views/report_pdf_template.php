@@ -91,17 +91,17 @@
         <p class="subheader">Jl. Maulana hasanudin no.98 Cipondoh, Tangerang, kota Tangerang Banten, 15148.</p>
     </div>
     <div align="center">
-        <table>
+        <table class="zui-table">
             <caption>CUSTOMER (<?=count($customer);?>)</caption>
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">NO KTP</th>
-                    <th scope="col">NAMA LENGKAP<br>EMAIL<br>NO TELP</th>
-                    <th scope="col">TANGGAL LAHIR</th>
-                    <th scope="col">KOTA TINGGAL<br>ALAMAT</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">REG DATE</th>
+                    <th>#</th>
+                    <th>NO KTP</th>
+                    <th>NAMA LENGKAP<br>EMAIL<br>NO TELP</th>
+                    <th>TANGGAL LAHIR</th>
+                    <th>KOTA TINGGAL<br>ALAMAT</th>
+                    <th>STATUS</th>
+                    <th>REG DATE</th>
                 </tr>
             </thead>
             <tbody>
@@ -124,12 +124,12 @@
             <caption>PACKAGE (<?=count($package);?>)</caption>
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">CUSTOMER</th>
-                    <th scope="col">ISI PAKET</th>
-                    <th scope="col">TUJUAN<br>(ALAMAT)</th>
-                    <th scope="col">LAST UPDATE</th>
-                    <th scope="col">STATUS</th>
+                    <th>#</th>
+                    <th>CUSTOMER</th>
+                    <th>ISI PAKET</th>
+                    <th>TUJUAN<br>(ALAMAT)</th>
+                    <th>LAST UPDATE</th>
+                    <th>STATUS</th>
                 </tr>
             </thead>
             <tbody>
@@ -151,15 +151,15 @@
             <caption>SUMMARY</caption>
             <thead>
             	<tr>
-                    <th scope="col">Customer Active</th>
-                    <th scope="col">Customer Non Active</th>
-                    <th scope="col">Customer Pending</th>
+                    <th>Customer Active</th>
+                    <th>Customer Non Active</th>
+                    <th>Customer Pending</th>
 
-                    <th scope="col">Package Request</th>
-                    <th scope="col">Package Pickup</th>
-                    <th scope="col">Package Karantina</th>
-                    <th scope="col">Package Pengiriman</th>
-                    <th scope="col">Package Selesai</th>
+                    <th>Package Request</th>
+                    <th>Package Pickup</th>
+                    <th>Package Karantina</th>
+                    <th>Package Pengiriman</th>
+                    <th>Package Selesai</th>
                 </tr>
             </thead>
             <tbody>
@@ -179,16 +179,11 @@
         <br/>
         <br/>
         <br/>
-        <p>
-            <a href="<?=$url_download;?>" class="btn-download">DOWNLOAD REPORT</a>
-        </p>
-        <br>
-        <br>
-        <!-- <footer>
+        <footer>
         	<p>---------------</p>
         	<p><b>KIKAN</b></p>
         	<p><i>Kirim Ikan</i></p>
-        </footer> -->
+        </footer>
     </div>
 </body>
 

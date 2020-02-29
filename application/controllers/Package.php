@@ -100,6 +100,8 @@ class Package extends CI_Controller {
                 if(!empty($val['package_tagihan_karantina']) && !empty($val['package_tagihan_pengiriman'])){
                     $total_x = $val['package_tagihan_karantina']+$val['package_tagihan_pengiriman'];
                     $package_data[$key]['package_tagihan_total'] = "Rp ".number_format((int)$total_x,0,',','.');
+                } else {
+                    $package_data[$key]['package_tagihan_total'] = "Rp ".number_format(0,0,',','.');
                 }
                 $package_data[$key]['package_status'] = $val['package_status'];
                 $package_data[$key]['package_last_update'] = rfdate($val['package_last_update']);
@@ -286,7 +288,7 @@ class Package extends CI_Controller {
 
             $resp = [
                 "success" => true,
-                "message" => "Konfirmasi penerimaan berhasil",
+                "message" => "Konfirmasi penerimaan berhasil. Silahkan menyelesaikan pembayaran sebelum melakukan pemesanan selanjutnya, terimakasih.",
                 "data" => $data,
                 "total" => 1
             ];
