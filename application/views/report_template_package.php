@@ -95,37 +95,11 @@
         <p class="subheader">Jl. Maulana hasanudin no.98 Cipondoh, Tangerang, kota Tangerang Banten, 15148.</p>
     </div>
     <div align="center">
+        <div class="caption-table">
+            (<?=count($package);?>) <?=$title;?><br>
+            <small><i>periode <?=$period;?></i></small>
+        </div>
         <table>
-            <caption>(<?=count($customer);?>) CUSTOMER</caption>
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">NO KTP</th>
-                    <th scope="col">NAMA LENGKAP<br>EMAIL<br>NO TELP</th>
-                    <th scope="col">TANGGAL LAHIR</th>
-                    <th scope="col">KOTA TINGGAL<br>ALAMAT</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">REG DATE</th>
-                </tr>
-            </thead>
-            <tbody>
-            	<?php foreach ($customer as $k => $v) { ?>
-	                <tr>
-	                    <td><?=($k+1);?></td>
-	                    <td><?=$v['customer_no_ktp'];?></td>
-	                    <td><?=$v['customer_nama'];?><br><?=$v['customer_email'];?><br><?=$v['customer_no_telp'];?></td>
-	                    <td><?=rfdate($v['customer_tgl_lahir'], "d F Y");?></td>	                    
-	                    <td><?=$v['customer_kota_tinggal'];?><br>(<?=zempty($v['customer_alamat']);?>)</td>
-	                    <td><?=zstatus($v['customer_status']);?></td>
-	                    <td><?=rfdate($v['customer_reg_date']);?></td>
-	                </tr>
-	            <?php } ?>
-            </tbody>
-        </table>
-        <br/>
-        <br/>
-        <table>
-            <caption>(<?=count($package);?>) PACKAGE</caption>
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -137,47 +111,16 @@
                 </tr>
             </thead>
             <tbody>
-            	<?php foreach ($package as $k => $v) { ?>
-	                <tr>
-	                    <td><?=($k+1);?></td>
-	                    <td><?=$v['customer_nama'];?></td>
-	                    <td><?=$v['package_nama'];?></td>
-	                    <td><?=$v['package_tujuan'];?><br>(<?=zempty($v['package_alamat']);?>)</td>
-	                    <td><?=rfdate($v['package_last_update']);?></td>
-	                    <td><?=$v['package_status'];?></td>
-	                </tr>
-	            <?php } ?>
-            </tbody>
-        </table>
-        <br/>
-        <br/>
-        <table>
-            <caption>SUMMARY</caption>
-            <thead>
-            	<tr>
-                    <th scope="col">Customer Active</th>
-                    <th scope="col">Customer Non Active</th>
-                    <th scope="col">Customer Pending</th>
-
-                    <th scope="col">Package Request</th>
-                    <th scope="col">Package Pickup</th>
-                    <th scope="col">Package Karantina</th>
-                    <th scope="col">Package Pengiriman</th>
-                    <th scope="col">Package Selesai</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><?=$summary['cust_active'];?></td>
-                    <td><?=$summary['cust_nonactive'];?></td>
-                    <td><?=$summary['cust_pending'];?></td>
-
-                    <td><?=$summary['pack_request'];?></td>
-                    <td><?=$summary['pack_pickup'];?></td>
-                    <td><?=$summary['pack_karantina'];?></td>
-                    <td><?=$summary['pack_pengiriman'];?></td>
-                    <td><?=$summary['pack_selesai'];?></td>
-                </tr>
+                <?php foreach ($package as $k => $v) { ?>
+                    <tr>
+                        <td><?=($k+1);?></td>
+                        <td><?=$v['customer_nama'];?></td>
+                        <td><?=$v['package_nama'];?></td>
+                        <td><?=$v['package_tujuan'];?><br>(<?=zempty($v['package_alamat']);?>)</td>
+                        <td><?=rfdate($v['package_last_update']);?></td>
+                        <td><?=$v['package_status'];?></td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
         <br><br><br>

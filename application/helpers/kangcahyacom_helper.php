@@ -180,3 +180,60 @@
         return $randomString; 
     } 
 
+    function dateidn() {
+        date_default_timezone_set('Asia/Jakarta');
+        $bulan = date("m");
+        if($bulan == "01"){
+            $m = "Januari";
+        }
+
+        if($bulan == "02"){
+            $m = "Februari";
+        }
+
+        if($bulan == "03"){
+            $m = "Maret";
+        }
+
+        if($bulan == "04"){
+            $m = "April";
+        }
+
+        if($bulan == "05"){
+            $m = "Mei";
+        }
+
+        if($bulan == "06"){
+            $m = "Juni";
+        }
+
+        if($bulan == "07"){
+            $m = "Juli";
+        }
+
+        if($bulan == "08"){
+            $m = "Agustus";
+        }
+
+        if($bulan == "09"){
+            $m = "September";
+        }
+
+        if($bulan == "10"){
+            $m = "Oktober";
+        }
+
+        if($bulan == "11"){
+            $m = "November";
+        }
+
+        if($bulan == "12"){
+            $m = "Desember";
+        }
+
+        $tanggal = date("d");
+        $tahun = date("Y");
+
+        return $tanggal . " " . $m . " " . $tahun;
+    }
+

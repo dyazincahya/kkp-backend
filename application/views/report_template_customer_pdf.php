@@ -95,8 +95,11 @@
         <p class="subheader">Jl. Maulana hasanudin no.98 Cipondoh, Tangerang, kota Tangerang Banten, 15148.</p>
     </div>
     <div align="center">
+        <div class="caption-table">
+            (<?=count($customer);?>) <?=$title;?><br>
+            <small><i>periode <?=$period;?></i></small>
+        </div>
         <table>
-            <caption>(<?=count($customer);?>) CUSTOMER</caption>
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -122,64 +125,6 @@
 	            <?php } ?>
             </tbody>
         </table>
-        <br/>
-        <br/>
-        <table>
-            <caption>(<?=count($package);?>) PACKAGE</caption>
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">CUSTOMER</th>
-                    <th scope="col">ISI PAKET</th>
-                    <th scope="col">TUJUAN<br>(ALAMAT)</th>
-                    <th scope="col">LAST UPDATE</th>
-                    <th scope="col">STATUS</th>
-                </tr>
-            </thead>
-            <tbody>
-            	<?php foreach ($package as $k => $v) { ?>
-	                <tr>
-	                    <td><?=($k+1);?></td>
-	                    <td><?=$v['customer_nama'];?></td>
-	                    <td><?=$v['package_nama'];?></td>
-	                    <td><?=$v['package_tujuan'];?><br>(<?=zempty($v['package_alamat']);?>)</td>
-	                    <td><?=rfdate($v['package_last_update']);?></td>
-	                    <td><?=$v['package_status'];?></td>
-	                </tr>
-	            <?php } ?>
-            </tbody>
-        </table>
-        <br/>
-        <br/>
-        <table>
-            <caption>SUMMARY</caption>
-            <thead>
-            	<tr>
-                    <th scope="col">Customer Active</th>
-                    <th scope="col">Customer Non Active</th>
-                    <th scope="col">Customer Pending</th>
-
-                    <th scope="col">Package Request</th>
-                    <th scope="col">Package Pickup</th>
-                    <th scope="col">Package Karantina</th>
-                    <th scope="col">Package Pengiriman</th>
-                    <th scope="col">Package Selesai</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><?=$summary['cust_active'];?></td>
-                    <td><?=$summary['cust_nonactive'];?></td>
-                    <td><?=$summary['cust_pending'];?></td>
-
-                    <td><?=$summary['pack_request'];?></td>
-                    <td><?=$summary['pack_pickup'];?></td>
-                    <td><?=$summary['pack_karantina'];?></td>
-                    <td><?=$summary['pack_pengiriman'];?></td>
-                    <td><?=$summary['pack_selesai'];?></td>
-                </tr>
-            </tbody>
-        </table>
         <br><br><br>
         <p align="right" style="margin-right: 50px">
             Banten, <?=dateidn();?>
@@ -191,11 +136,7 @@
             <br>
             _________________________________<br>
             PIMPINAN<br>
-        </p>
-        
-        <p>
-            <a href="<?=$url_download;?>" class="btn-download">DOWNLOAD REPORT</a>
-        </p>
+        </p>        
         <br>
         <br>
     </div>
