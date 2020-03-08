@@ -67,8 +67,8 @@
         $mail->isSMTP();
         $mail->Host = 'lumineon.sg.rapidplex.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'kkp@vuspicture.com';
-        $mail->Password = '5rkbi5shs3';
+        $mail->Username = 'noreply@vuspicture.com';
+        $mail->Password = 'vtsmbx9c5fj1';
         $mail->Port = 587; // 465 | 587
 
         $mail->setFrom('noreply@vuspicture.com', 'noreply');

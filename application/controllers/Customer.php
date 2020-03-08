@@ -62,6 +62,9 @@ class Customer extends CI_Controller {
         $status = get_raw_body("status"); // 0=non active 1=active 2=pending
 
         if($id != null && $status != null){
+            if($status == "OFF"){
+                $status = "0";
+            }
             $this->db->where("customer_id", $id);
             $this->db->update("customer", ["customer_status" => $status]);
 
