@@ -237,3 +237,37 @@
         return $tanggal . " " . $m . " " . $tahun;
     }
 
+    function getDayName() {
+        $dayOfWeek=date('w');
+        switch ($dayOfWeek){
+            case 0:
+                return 'senin';
+                break;
+            case 1:
+                return 'selasa';
+                break;
+            case 2:
+                return 'rabu';
+                break;
+            case 3:
+                return 'kamis';
+                break;
+            case 4:
+                return 'jumat';
+                break;
+            case 5:
+                return 'sabtu';
+                break;
+            case 6:
+                return 'minggu';
+                break;
+            default:
+                return '';
+                break;
+        }
+    }
+
+    function getCityName(){
+        return "Tanggerang";
+    }
+

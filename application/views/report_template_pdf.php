@@ -182,7 +182,7 @@
         </table>
         <br><br><br>
         <p align="right" style="margin-right: 50px">
-            Banten, <?=dateidn();?>
+            <?=getCityName();?>, <?=getDayName();?> <?=dateidn();?>
             <br>
             <br>
             <br>
